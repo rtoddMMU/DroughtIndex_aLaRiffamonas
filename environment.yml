@@ -3,7 +3,9 @@ channels:
   - conda-forge
   - base
   - R
+  - bioconda
 dependencies:
   - r-base
   - r-tidyverse
+  - snakemake=8.12.0
   
