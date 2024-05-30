@@ -1,0 +1,25 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                 count
+----------------  -------
+get_station_data        1
+total                   1
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Thu May 30 13:42:12 2024]
+localrule get_station_data:
+    input: code/get_ghcnd_data.bash
+    output: data/ghcnd-stations.txt
+    jobid: 0
+    reason: Updated input files: code/get_ghcnd_data.bash
+    resources: tmpdir=/tmp
+
+[Thu May 30 13:42:13 2024]
+Finished job 0.
+1 of 1 steps (100%) done
+Complete log: .snakemake/log/2024-05-30T134211.987748.snakemake.log

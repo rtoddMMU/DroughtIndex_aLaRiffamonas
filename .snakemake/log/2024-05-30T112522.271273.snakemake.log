@@ -1,0 +1,56 @@
+Migrating .snakemake folder to new format...
+Migration complete
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                  count
+-----------------  -------
+get_all_archive          1
+get_all_filenames        1
+targets                  1
+total                    3
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Thu May 30 11:25:22 2024]
+localrule get_all_archive:
+    input: code/get_ghcnd_all.bash
+    output: data/ghcnd_all.tar.gz
+    jobid: 1
+    reason: Missing output files: data/ghcnd_all.tar.gz
+    resources: tmpdir=/tmp
+
+[Thu May 30 11:36:25 2024]
+Finished job 1.
+1 of 3 steps (33%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Thu May 30 11:36:25 2024]
+localrule get_all_filenames:
+    input: code/get_ghcnd_all_files.bash, data/ghcnd_all.tar.gz
+    output: data/ghcnd_all_files.txt
+    jobid: 2
+    reason: Input files updated by another job: data/ghcnd_all.tar.gz
+    resources: tmpdir=/tmp
+
+[Thu May 30 11:38:28 2024]
+Finished job 2.
+2 of 3 steps (67%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Thu May 30 11:38:28 2024]
+localrule targets:
+    input: data/ghcnd_all.tar.gz, data/ghcnd_all_files.txt, data/ghcnd-inventory.txt, data/ghcnd-stations.txt
+    jobid: 0
+    reason: Input files updated by another job: data/ghcnd_all.tar.gz, data/ghcnd_all_files.txt
+    resources: tmpdir=/tmp
+
+[Thu May 30 11:38:28 2024]
+Finished job 0.
+3 of 3 steps (100%) done
+Complete log: .snakemake/log/2024-05-30T112522.271273.snakemake.log

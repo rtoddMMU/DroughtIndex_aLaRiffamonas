@@ -1,0 +1,5 @@
+Building DAG of jobs...
+MissingInputException in rule targets in file /mnt/c/Users/rober/DroughtIndex_aLaRiffamonas/workflow/Snakefile, line 1:
+Missing input files for rule targets:
+    affected files:
+        data/ghcnd-inventory.txt
